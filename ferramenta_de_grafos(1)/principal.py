@@ -1,13 +1,13 @@
 from funcoes.carregar_grafos import carregarGrafos
-from funcoes.sao_multigrafos import saoMultigrafos
-from funcoes.sao_pseudografos import saoPseudografos
-from funcoes.grau import grauDeTodosOsVertices, grauDeVerticeEspecifico
-from funcoes.sao_completos import saoCompletos
-from funcoes.sao_desconexos import saoDesconexos
-from funcoes.ha_vertices_alcancaveis import haVerticesAlcancaveis
-from funcoes.ha_vertices_inalcancaveis import haVerticesInalcancaveis
-from funcoes.ha_caminhos_bfs import haCaminhoBfs
-from funcoes.ha_caminhos_dfs import haCaminhoDfs
+from funcoes.multigrafo import Multigrafos
+from funcoes.pseudografo import Pseudografos
+from funcoes.grau_do_vertice import grauDeTodosOsVertices, grauDeVerticeEspecifico
+from funcoes.completo import Completos
+from funcoes.desconexo import Desconexos
+from funcoes.alcancaveis import haVerticesAlcancaveis
+from funcoes.inalcancaveis import haVerticesInalcancaveis
+from funcoes.busca_bfs import CaminhoBfs
+from funcoes.busca_dfs import CaminhoDfs
 
 
 print("FERRAMENTA GRAFOS \nInsira um comando")
@@ -17,7 +17,7 @@ class FerramentaGrafos:
     continuarPrograma = True
     grafos = []
 
-    def reconhecerComando(self, comando: str):
+    def Comandos(self, comando: str):
         if comando[0] == "grafos":
             if comando[1] == "sair":
                 print("fim do programa!\n")
@@ -33,7 +33,7 @@ class FerramentaGrafos:
 
             elif comando[1] == "multigrafos":
                 if self.existemGrafos():
-                    multigrafos = saoMultigrafos(self.grafos)
+                    multigrafos = Multigrafos(self.grafos)
                     print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
                     for grafo in multigrafos:
                         print(grafo.id)
@@ -44,7 +44,7 @@ class FerramentaGrafos:
 
             elif comando[1] == "pseudografos":
                 if self.existemGrafos():
-                    pseudografos = saoPseudografos(self.grafos)
+                    pseudografos = Pseudografos(self.grafos)
                     print("dentre esses grafos, são pseudografos os com os seguintes IDs:") 
                     for grafo in pseudografos:
                         print(grafo.id)
@@ -54,7 +54,7 @@ class FerramentaGrafos:
 
             elif comando[1] == "desconexos":
                 if self.existemGrafos():
-                    desconexos = saoDesconexos(self.grafos)
+                    desconexos = Desconexos(self.grafos)
                     print("dentre esses grafos, são desconexos os com os seguintes IDs:") 
                     for grafo in desconexos:
                         print(grafo.id)
