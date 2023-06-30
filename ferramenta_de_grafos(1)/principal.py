@@ -34,7 +34,7 @@ class FerramentaGrafos:
             elif comando[1] == "multigrafos":
                 if self.existemGrafos():
                     multigrafos = Multigrafos(self.grafos)
-                    print("dentre esses grafos, são multigrafos os com os seguintes IDs:") 
+                    print("Os grafos multigrafos são os com os seguintes IDs:") 
                     for grafo in multigrafos:
                         print(grafo.id)
                 else:
@@ -45,7 +45,7 @@ class FerramentaGrafos:
             elif comando[1] == "pseudografos":
                 if self.existemGrafos():
                     pseudografos = Pseudografos(self.grafos)
-                    print("dentre esses grafos, são pseudografos os com os seguintes IDs:") 
+                    print("Os pseudografos são os com o seguinte IDs:") 
                     for grafo in pseudografos:
                         print(grafo.id)
                 else:
@@ -55,7 +55,7 @@ class FerramentaGrafos:
             elif comando[1] == "desconexos":
                 if self.existemGrafos():
                     desconexos = Desconexos(self.grafos)
-                    print("dentre esses grafos, são desconexos os com os seguintes IDs:") 
+                    print("Os grafos desconexos são os de IDs::") 
                     for grafo in desconexos:
                         print(grafo.id)
                 else:
@@ -66,7 +66,7 @@ class FerramentaGrafos:
             elif comando[1] == "completos":
                 if self.existemGrafos():
                     completos = Completos(self.grafos)
-                    print("dentre esses grafos, são completos os com os seguintes IDs:") 
+                    print("Os grafos completos são os de IDs:") 
                     for grafo in completos:
                         print(grafo.id)
                 else:
@@ -78,7 +78,7 @@ class FerramentaGrafos:
                     idGrafo = int(comando[2].split("=")[1])
 
                     listaDeGraus = grauDeTodosOsVertices(self.grafos[idGrafo-1])
-                    print("Esse grafo tem os seguintes graus em cada vértice:")
+                    print("graus em cada vértice:")
                     for i in range(len(listaDeGraus)):
                         print(self.grafos[idGrafo-1].vertices[i]," - ", listaDeGraus[i])
                 else:
@@ -171,7 +171,7 @@ while ferramentaGrafos.continuarPrograma:
     comando = str(input("\n> "))
     comandoAtual = comando.split()
     try:
-        ferramentaGrafos.reconhecerComando(comandoAtual)
+        ferramentaGrafos.Comandos(comandoAtual)
     except:
         print("comando digitado incorretamente! tente novamente")
 

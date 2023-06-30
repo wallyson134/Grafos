@@ -3,15 +3,14 @@ from classes.grafo import Grafo
 
 
 def carregarGrafos(arquivo):
+    print(arquivo)
     try:
         file = open(arquivo)
         dados = json.load(file)
     except:
-        print("Erro")
-        #raise Exception()
+        raise Exception()
     else:
         grafos: list[Grafo] = []
-        # aqui vou ter uma lista com todos os grafos em forma de objeto
         for i in dados['graphs']:
             grafos.append(
                 Grafo(
