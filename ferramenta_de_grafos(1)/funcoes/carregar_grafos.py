@@ -7,7 +7,8 @@ def carregarGrafos(arquivo):
         file = open(arquivo)
         dados = json.load(file)
     except:
-        raise Exception()
+        print("Erro")
+        #raise Exception()
     else:
         grafos: list[Grafo] = []
         # aqui vou ter uma lista com todos os grafos em forma de objeto

@@ -1,6 +1,6 @@
 from classes.grafo import Grafo
 
-def saoCompletos(grafos: list[Grafo]):
+def Completos(grafos: list[Grafo]):
     saoCompletos: list[Grafo] = []
 
     for grafo in grafos:

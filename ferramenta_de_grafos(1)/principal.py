@@ -1,16 +1,16 @@
 from funcoes.carregar_grafos import carregarGrafos
-from funcoes.multigrafo import Multigrafos
+from funcoes.multigrafos import Multigrafos
 from funcoes.pseudografo import Pseudografos
 from funcoes.grau_do_vertice import grauDeTodosOsVertices, grauDeVerticeEspecifico
 from funcoes.completo import Completos
 from funcoes.desconexo import Desconexos
-from funcoes.alcancaveis import haVerticesAlcancaveis
-from funcoes.inalcancaveis import haVerticesInalcancaveis
+from funcoes.alcancaveis import Alcancaveis
+from funcoes.inalcancaveis import Inalcancaveis
 from funcoes.busca_bfs import CaminhoBfs
 from funcoes.busca_dfs import CaminhoDfs
 
 
-print("FERRAMENTA GRAFOS \nInsira um comando")
+print("GRAFOS \nEscolha um comando para analise do grafo")
 
 
 class FerramentaGrafos:
@@ -65,7 +65,7 @@ class FerramentaGrafos:
 
             elif comando[1] == "completos":
                 if self.existemGrafos():
-                    completos = saoCompletos(self.grafos)
+                    completos = Completos(self.grafos)
                     print("dentre esses grafos, são completos os com os seguintes IDs:") 
                     for grafo in completos:
                         print(grafo.id)
@@ -100,7 +100,7 @@ class FerramentaGrafos:
                 if self.existemGrafos():
                     verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
 
-                    alcancaveis = haVerticesAlcancaveis(self.grafos, verticeInicial)
+                    alcancaveis = Alcancaveis(self.grafos, verticeInicial)
                     for i in range(len(alcancaveis)):
                         # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices alcancaveis
                         verticesAlcancaveis = alcancaveis[i] if alcancaveis[i] else 'nenhum'
@@ -113,7 +113,7 @@ class FerramentaGrafos:
                 if self.existemGrafos():
                     verticeInicial = comando[2].split("=")[1].strip("'").strip('"')
 
-                    inalcancaveis = haVerticesInalcancaveis(self.grafos, verticeInicial)
+                    inalcancaveis = Inalcancaveis(self.grafos, verticeInicial)
                     for i in range(len(inalcancaveis)):
                         # a linha abaixo faz aparecer a msg 'nenhum' caso n haja vertices inalcancaveis
                         verticesInalcancaveis = inalcancaveis[i] if inalcancaveis[i] else 'nenhum'
@@ -127,7 +127,7 @@ class FerramentaGrafos:
                     partida = comando[2].split('=')[1].strip('"')
                     chegada = comando[3].split('=')[1].strip('"')
 
-                    caminhoBfs = haCaminhoBfs(self.grafos, partida, chegada)
+                    caminhoBfs = CaminhoBfs(self.grafos, partida, chegada)
 
                     print("BFS")
                     for caminho in caminhoBfs:
@@ -142,7 +142,7 @@ class FerramentaGrafos:
                     partida = comando[2].split('=')[1].strip('"')
                     chegada = comando[3].split('=')[1].strip('"')
 
-                    caminhoDfs = haCaminhoDfs(self.grafos, partida, chegada)
+                    caminhoDfs = CaminhoDfs(self.grafos, partida, chegada)
 
                     print("DFS")
                     for caminho in caminhoDfs:

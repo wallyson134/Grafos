@@ -1,7 +1,7 @@
 from classes.grafo import Grafo
 from collections import deque
 
-def haVerticesAlcancaveis(grafos: list[Grafo], verticeInicial):
+def Alcancaveis(grafos: list[Grafo], verticeInicial):
     haVerticesAlcancaveis = []
 
     for grafo in grafos:

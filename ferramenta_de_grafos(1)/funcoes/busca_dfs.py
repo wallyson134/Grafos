@@ -1,6 +1,6 @@
 from classes.grafo import Grafo
 
-def haCaminhoDfs(grafos: list[Grafo], partida, chegada):
+def CaminhoDfs(grafos: list[Grafo], partida, chegada):
     haCaminho: list[Grafo] = []
     
     for grafo in grafos:
@@ -12,53 +12,6 @@ def haCaminhoDfs(grafos: list[Grafo], partida, chegada):
             haCaminho.append((grafo.id, "caminho não encontrado"))
 
     return haCaminho
-
-def dfs(grafo, start, end):
-    # Verificar se os vértices de início e fim estão no grafo
-    if start not in grafo.vertices or end not in grafo.vertices:
-        return None
-
-    # Criar um dicionário para rastrear os predecessores de cada vértice visitado
-    predecessors = {}
-
-    # Realizar a busca em profundidade
-    _dfs_util(grafo, start, end, predecessors)
-
-    # Construir o caminho a partir dos predecessores
-    path = _construct_path(start, end, predecessors)
-
-    return path
-
-def _dfs_util(grafo, current_vertex, end, predecessors):
-    # Verificar se chegamos ao vértice de destino
-    if current_vertex == end:
-        return True
-
-    # Encontrar os vizinhos do vértice atual
-    neighbors = [edge[1] for edge in grafo.arestas if edge[0] == current_vertex]
-
-    # Explorar os vizinhos não visitados recursivamente
-    for neighbor in neighbors:
-        if neighbor not in predecessors:
-            predecessors[neighbor] = current_vertex
-            if _dfs_util(grafo, neighbor, end, predecessors):
-                return True
-
-    return False
-
-def _construct_path(start, end, predecessors):
-    # Construir o caminho a partir dos predecessores
-    path = []
-    current_vertex = end
-    while current_vertex is not None:
-        path.append(current_vertex)
-        current_vertex = predecessors.get(current_vertex)
-
-    # Inverter o caminho para obter a ordem correta
-    path.reverse()
-
-    # Retornar o caminho encontrado
-    return path
 
 def dfs2(grafo: Grafo, partida, chegada):
     vertices = grafo.vertices

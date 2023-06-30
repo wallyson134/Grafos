@@ -22,7 +22,7 @@ def verificaConexao(vertices, arestas):
 
     return len(verticesAlcancaveis) == len(vertices)
 
-def saoDesconexos(grafos: list[Grafo]):
+def Desconexos(grafos: list[Grafo]):
     saoDesconexos = []
 
     for grafo in grafos:

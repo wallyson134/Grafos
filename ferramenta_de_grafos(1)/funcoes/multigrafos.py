@@ -1,7 +1,7 @@
 from classes.grafo import Grafo
 
 def Multigrafos(grafos: list[Grafo]):
-    saoMultigrafos: list[Grafo] = []
+    Multigrafos: list[Grafo] = []
 
     for grafo in grafos:
         
@@ -9,8 +9,8 @@ def Multigrafos(grafos: list[Grafo]):
             for j in range(len(grafo.matrizADJ[i])):
 
                 if (grafo.matrizADJ[i][j]>1):
-                    saoMultigrafos.append(grafo)
+                    Multigrafos.append(grafo)
                     break
         
-    return saoMultigrafos
- 
+    return Multigrafos
+   
