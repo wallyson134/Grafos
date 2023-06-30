@@ -1,8 +1,8 @@
 class Grafo:
     def __init__(self, id, vertices, arestas):
         self.id = id
-        self.vertices: list = vertices
-        self.arestas: list = arestas
+        self.vertices = vertices
+        self.arestas = arestas
         self.criarMatrizDeAdjacencia()
 
     def criarMatrizDeAdjacencia(self):
@@ -11,8 +11,6 @@ class Grafo:
         for aresta in self.arestas:
             origem = self.vertices.index(aresta[0])
             destino = self.vertices.index(aresta[1])
-            # self.matrizADJ[origem][destino] = 1 
-            self.matrizADJ[origem][destino] = 1 if self.matrizADJ[origem][destino] == 0 else self.matrizADJ[origem][destino]+1
-
-            # self.matrizADJ[destino][origem] = 1 APENAS P/ GRAFO N DIRECIONADO
-
+            self.matrizADJ[origem][destino] = 1
+            # Descomente a linha abaixo se o grafo não for direcionado
+            # self.matrizADJ[destino][origem] = 1
