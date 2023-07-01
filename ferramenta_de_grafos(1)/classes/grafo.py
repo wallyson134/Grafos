@@ -12,5 +12,4 @@ class Grafo:
             origem = self.vertices.index(aresta[0])
             destino = self.vertices.index(aresta[1])
             self.matrizADJ[origem][destino] = 1
-            # Descomente a linha abaixo se o grafo não for direcionado
-            # self.matrizADJ[destino][origem] = 1
+            
