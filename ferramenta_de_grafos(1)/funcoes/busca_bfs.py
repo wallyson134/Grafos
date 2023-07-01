@@ -2,7 +2,7 @@ from classes.grafo import Grafo
 
 from collections import deque
 
-def CaminhoBfs(grafos: list[Grafo], partida, chegada):
+def busca_bfs(grafos: list[Grafo], partida, chegada):
     haCaminho: list[Grafo] = []
     
     for grafo in grafos:

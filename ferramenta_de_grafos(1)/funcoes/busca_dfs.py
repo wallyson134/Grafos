@@ -1,6 +1,6 @@
 from classes.grafo import Grafo
 
-def CaminhoDfs(grafos: list[Grafo], partida, chegada):
+def busca_Dfs(grafos: list[Grafo], partida, chegada):
     haCaminho: list[Grafo] = []
     
     for grafo in grafos:

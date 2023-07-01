@@ -1,6 +1,6 @@
 from classes.grafo import Grafo
 
-def Multigrafos(grafos: list[Grafo]):
+def multigrafos(grafos: list[Grafo]):
     Multigrafos: list[Grafo] = []
 
     for grafo in grafos:

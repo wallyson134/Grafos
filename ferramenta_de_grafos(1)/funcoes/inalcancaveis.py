@@ -2,7 +2,7 @@ from classes.grafo import Grafo
 from funcoes.alcancaveis import Alcancaveis
 
 
-def Inalcancaveis(grafos: list[Grafo], verticeInicial):
+def inalcancaveis(grafos: list[Grafo], verticeInicial):
     vInalcancaveis = []
 
     alcancaveis = Alcancaveis(grafos, verticeInicial)
